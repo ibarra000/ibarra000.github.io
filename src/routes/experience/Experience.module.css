@@ -5,7 +5,7 @@
   height: fit-content;
   display: flex;
   flex-direction: column; /* Use column direction as needed */
-  align-items: center; /* Center children horizontally within the container */
+  align-items: flex-end; /* Center children horizontally within the container */
   padding: 3rem;
   margin: 0 auto 0 auto; /* Similar margin to .home */
   gap: 3rem;
@@ -29,7 +29,8 @@
     row
   ); /* Use column direction as needed */
   align-items: center; /* Center children horizontally within the container */
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 5rem;
 }
 
 @media (max-width: 1000px) {

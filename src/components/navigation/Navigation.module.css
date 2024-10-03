@@ -1,0 +1,34 @@
+.navContainer,
+.directory {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.05rem;
+}
+
+.navContainer {
+    gap: 10rem
+}
+
+.navContainer span, .navContainer a {
+	text-decoration: underline rgba(255,255,255,0);
+	transition: text-decoration 0.5s;
+	text-underline-offset: 0.5rem;
+}
+.navContainer span:hover, .navContainer a:hover {
+	text-decoration: underline rgba(255,255,255,1);
+	cursor: pointer;
+}
+
+.directory {
+  list-style-type: none;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+

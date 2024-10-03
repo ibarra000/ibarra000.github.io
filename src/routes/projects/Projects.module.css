@@ -30,7 +30,7 @@
     row
   ); /* Use column direction as needed */
   align-items: center; /* Center children horizontally within the container */
-  justify-content: center;
+  justify-content: flex-start;
   gap: 5rem;
 }
 

@@ -7,18 +7,12 @@ export default function About() {
       <h1>About</h1>
       <p>
         {
-          "I'm currently majoring in Mechanical Engineering with a minor in Computer Science. I recently finished my co-op as a Components Engineer at "
+          "I'm a senior at Northeastern majoring in Mechanical Engineering with a minor in Computer Science. I love being a hands-on engineer and working with people from all kinds of backgrounds. For me, the best part of any job is the people—I’m always excited to meet new folks and learn from their experiences."
         }
-        <a
-          href="http://www.boydcorp.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.blue}
-        >
-          Boyd
-        </a>
+      </p>
+      <p>
         {
-          ". During my time there, I wrote Python scripts to streamline data analysis, managed and optimized the database using SQLite, and oversaw the vacuum-brazing manufacturing process for aluminum parts to ensure quality. I also found ways to improve processes and boost productivity, and spent a lot of time in SolidWorks designing and assembling CAD models to make testing and setup easier."
+          "My main focus is in Quality and Manufacturing processes, where I enjoy maximizing systems and ensuring things run smoothly. I’ve had experience working on projects ranging from product testing to system development. I’m a strong believer in continuous learning, so I’m open to diving into new areas of the field to expand my expertise."
         }
       </p>
       <p>

@@ -1,0 +1,38 @@
+.zone,
+.time {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.zone {
+  line-height: 95%;
+}
+
+.time {
+  letter-spacing: -0.025rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.time {
+  letter-spacing: -0.025rem;
+  text-align: center;
+}
+
+.time::before {
+  content: "[";
+  margin-right: 0.5rem;
+}
+
+.time::after {
+  content: "]";
+  margin-left: 0.5rem; 
+}
+
+.timeBox {
+  padding: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

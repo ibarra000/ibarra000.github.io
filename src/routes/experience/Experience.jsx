@@ -3,6 +3,7 @@ import styles from "./Experience.module.css";
 import NER from "../../assets/ner-logo.png";
 import BOYD from "../../assets/boyd-logo.webp";
 import NU from "../../assets/nu-logo.webp";
+import ATKORE from "../../assets/atkore-logo.png";
 
 export default function Experience() {
   return (
@@ -10,13 +11,15 @@ export default function Experience() {
       <h1>Experience</h1>
       <div className={styles.cardContainer}>
         <Card
-          title={"NU electric racing"}
-          imageUrl={NER}
-          role={"Developer"}
-          description={"JavaScript, Node.js, React, Prisma, Git"}
-          altText={"Northeastern Electric Racing Logo"}
-          Url={"https://electricracing.northeastern.edu/"}
-          backgroundColor={"#ff0000"}
+          title={"atkore"}
+          imageUrl={ATKORE}
+          role={"Manufacturing Engineer"}
+          description={
+            "6Sigma, LEAN, Autodesk Inventor + Revit, Management, Leadership"
+          }
+          altText={"Atkore International Logo"}
+          Url={"https://www.atkore.com/"}
+          backgroundColor={"#47AA42"}
         />
         <Card
           title={"boyd corporation"}
@@ -26,6 +29,15 @@ export default function Experience() {
           altText={"Boyd Corporation Logo"}
           Url={"https://www.boydcorp.com/"}
           backgroundColor={"#1266ab"}
+        />
+        <Card
+          title={"NU electric racing"}
+          imageUrl={NER}
+          role={"Developer"}
+          description={"JavaScript, Node.js, React, Prisma, Git"}
+          altText={"Northeastern Electric Racing Logo"}
+          Url={"https://electricracing.northeastern.edu/"}
+          backgroundColor={"#ff0000"}
         />
         <Card
           title={"northeastern COE"}

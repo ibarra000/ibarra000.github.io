@@ -5,7 +5,7 @@
   height: fit-content;
   display: flex;
   flex-direction: column; /* Use column direction as needed */
-  align-items: center; /* Center children horizontally within the container */
+  align-items: flex-start; /* Center children horizontally within the container */
   padding: 3rem;
   margin: 0 auto 15rem auto; /* Similar margin to .home */
   gap: 3rem;
