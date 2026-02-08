@@ -18,7 +18,7 @@ export default function Experience() {
 	  description={"AutoCAD, Electrical Schematics, Project Management, Equipment Sales"}
 	  altText={"Veolia North America Logo"}
 	  Url={"https://www.veolianorthamerica.com/"}
-	  backgroundColor={"#ff0000"}
+	  backgroundColor={"ff0000"}
 	/>
         <Card
           title={"atkore"}

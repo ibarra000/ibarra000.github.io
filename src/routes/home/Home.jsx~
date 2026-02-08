@@ -7,7 +7,7 @@ export default function Home() {
     <section className={styles.home} id="home">
       <div className={styles.intro}>
         <img src={Greeting} alt="Greeting message" />
-        <p>Mechanical Engineer</p>
+        <p>Mechanical Engineer @ Northeastern University</p>
         <span className={styles.whisper}>
           I'm an engineer, but also engage in Software Development!
         </span>

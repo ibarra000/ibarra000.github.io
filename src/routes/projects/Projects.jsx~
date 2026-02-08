@@ -1,7 +1,7 @@
 import Card from "../../components/card/Card";
 import styles from "./Projects.module.css";
 import CHESS from "../../assets/chess.jpg";
-import PANCAKE from "../../assets/pancake.png";
+import PANKCAKE from "../../assets/pancake.png";
 
 export default function Projects() {
   return (

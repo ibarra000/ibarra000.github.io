@@ -64,7 +64,7 @@ export default function Header() {
       </nav>
       <div className={styles.socials}>
         <a
-          href="https://www.linkedin.com/in/edward-ibarra-neu"
+          href="https://www.linkedin.com/in/edward-ibarra-6974a51a1"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"

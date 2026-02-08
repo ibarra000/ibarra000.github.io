@@ -7,6 +7,16 @@ export default function About() {
       <h1>About</h1>
       <p>
         {
+		"I'm a graduate from Northeastern University
+        }
+      </p>
+      <p>
+        {
+          "My main focus is in Quality and Manufacturing processes, where I enjoy maximizing systems and ensuring things run smoothly. I’ve had experience working on projects ranging from product testing to system development. I’m a strong believer in continuous learning, so I’m open to diving into new areas of the field to expand my expertise."
+        }
+      </p>
+      <p>
+        {
           "I'm a Mechanical Engineer, graduated from "
         }
         <a
