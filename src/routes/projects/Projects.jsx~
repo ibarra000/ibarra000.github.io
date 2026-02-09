@@ -13,7 +13,7 @@ export default function Projects() {
 	  title={"Text2CADQuery Dataset"}
 	  imageUrl={DATASET}
 	  role={"Hugging Face"}
-	  description={"A dataset of text to CadQuery scripts for LLMs"}
+	  description={"A dataset of text prompts to CadQuery scripts for LLMs"}
 	  backgroundColor={"#000000"}
 	/>
         <Card

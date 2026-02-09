@@ -14,6 +14,8 @@ export default function Projects() {
 	  imageUrl={DATASET}
 	  role={"Hugging Face"}
 	  description={"A dataset of text prompts to CadQuery scripts for LLMs"}
+	  altText={"Download Cloud"}
+	  Url={"https://huggingface.co/datasets/Edvvurd/Text2CADQuery"}
 	  backgroundColor={"#000000"}
 	/>
         <Card
