@@ -2,12 +2,20 @@ import Card from "../../components/card/Card";
 import styles from "./Projects.module.css";
 import CHESS from "../../assets/chess.jpg";
 import PANCAKE from "../../assets/pancake.png";
+import DATASET from "../../assets/dataset.png";
 
 export default function Projects() {
   return (
     <section className={styles.exp} id="projects">
       <h1>Projects</h1>
       <div className={styles.cardContainer}>
+	<Card
+	  title={"Text2CADQuery Dataset"}
+	  imageUrl={DATASET}
+	  role={"Hugging Face"}
+	  description={"A dataset of text prompts to CadQuery scripts for LLMs"}
+	  backgroundColor={"#000000"}
+	/>
         <Card
           title={"Chess Trainer (LLM)"}
           imageUrl={CHESS}
