@@ -9,7 +9,7 @@ export default function Home() {
         <img src={Greeting} alt="Greeting message" />
         <p>Mechanical Engineer</p>
         <span className={styles.whisper}>
-          I'm an engineer, but also engage in Software Development!
+          I&apos;m an engineer, but also engage in Software Development!
         </span>
       </div>
       <figure>
