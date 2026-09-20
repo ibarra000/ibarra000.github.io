@@ -1,0 +1,17 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  /* Generous and viewport-scaled: these are full-width panels now, not a
+     wrapping grid of 19rem cards, so the gap is the only thing separating two
+     adjacent blocks of the same shape. Too tight and the run reads as one
+     striped surface instead of six entries. */
+  gap: clamp(2rem, 5vw, 4rem);
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* The <ol> is semantic, not decorative -- the numbers would compete with the
+     entry titles for the reading order. Screen readers still announce the
+     count and position, which is the whole reason it is an <ol>. */
+  list-style: none;
+}

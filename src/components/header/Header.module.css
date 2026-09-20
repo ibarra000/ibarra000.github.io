@@ -9,7 +9,9 @@
   padding: 0.5rem 3vw;
   box-sizing: border-box;
   z-index: 1000;
-  background-color: #f2f6ff;
+  background-color: white;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+
 }
 
 /* .logo {
@@ -93,12 +95,17 @@
 }
 
 .mobileMenu {
+  /* Was top: 5rem = 65px, a hand-measured guess. The header computes to 61px
+     (0.5rem padding twice plus a 48px social icon), which left a 4px seam of
+     page showing beneath it. 100% resolves against the containing block's
+     padding box -- .header is position: fixed with no border -- so this is
+     exactly the header height, whatever it becomes. */
+  top: 100%;
   display: none;
   flex-direction: column;
   align-items: flex-start;
   background-color: #ffffff;
   position: absolute;
-  top: 5rem; /* Adjust based on your header height */
   right: 0;
   width: 100%;
   border: 1px solid #ddd;
@@ -142,6 +149,11 @@
 
   .hamburger {
     display: inline-block;
+    /* The ONLY navigation control below 1000px, and with no padding and the UA
+       font shorthand resetting line-height to normal it computes to ~32x38px.
+       min-*, not width/height, so the glyph still sets the box if it grows. */
+    min-width: 44px;
+    min-height: 44px;
   }
 }
 

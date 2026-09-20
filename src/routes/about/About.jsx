@@ -13,7 +13,7 @@ export default function About() {
         >
           Northeastern University
         </a>
-        {", and I love exploring the intersection of physical and digital world. Here you'll find my work experience but more importantly, the projects I've done in the past. I hope you enjoy and thanks for visiting!"}
+        {", and I love coding and tinkering. Here you'll find my work experience and the projects I've done in the past. I hope you enjoy and thanks for visiting!"}
       </p>
     </section>
   );

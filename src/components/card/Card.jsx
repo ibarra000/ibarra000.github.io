@@ -1,28 +1,36 @@
 import styles from "./Card.module.css";
+import { useCardTilt } from "./useCardTilt";
 
-export default function Card({
-  title,
-  role,
-  description,
-  altText,
-  imageUrl,
-  Url,
-  backgroundColor,
-}) {
+
+export default function Card({ item, onOpen }) {
+  const { title, role, description, imageUrl, altText, accentColor } = item;
+  const { handlePointerTrack, handlePointerLeave } = useCardTilt();
+
   return (
     <figure
       className={styles.cardContainer}
-      style={{ "--box-shadow-color": backgroundColor }}
+      style={{ "--accent": accentColor }}
+
+      onPointerEnter={handlePointerTrack}
+      onPointerMove={handlePointerTrack}
+
+      onPointerLeave={handlePointerLeave}
     >
-      <a href={Url} className={styles.imgContainer} target="_blank" rel="noopener noreferrer">
+      <h2 className={styles.name}>
+        <button
+          type="button"
+          className={styles.cardTrigger}
+          aria-haspopup="dialog"
+          onClick={(event) => onOpen(item, event.currentTarget)}
+        >
+          {title}
+          <span className="srOnly"> — open demo and details</span>
+        </button>
+      </h2>
+      <div className={styles.artwork}>
         <img src={imageUrl} alt={altText} />
-      </a>
-      <figcaption>
-        <h2>
-          <a href={Url} target="_blank" rel="noopener noreferrer">
-            {title}
-          </a>
-        </h2>
+      </div>
+      <figcaption className={styles.textbox}>
         <h3>{role}</h3>
         <p>{description}</p>
       </figcaption>
