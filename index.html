@@ -3,9 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edward Ibarra - MechE + CS</title>
-    <script type="module" crossorigin src="/assets/index-2lQqDrlC.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-xDyF1De1.css">
+    <!--
+      Scoped to frame-src on purpose. A default-src here would also apply in
+      dev, where Vite's HMR needs inline scripts, eval and a websocket -- so it
+      would have to be widened until it meant nothing. frame-src IS honored in
+      meta form (unlike frame-ancestors or report-uri), which makes this a real
+      second control alongside the allowlist in src/lib/embed.js. Adding a host
+      means editing BOTH places.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="frame-src https://cap.so https://www.youtube-nocookie.com https://player.vimeo.com; object-src 'none'; base-uri 'self'"
+    />
+    <title>edward ibarra - portfolio</title>
+    <script type="module" crossorigin src="/assets/index-1bzU9w7D.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-By-4edty.css">
   </head>
   <body>
     <div id="root"></div>
