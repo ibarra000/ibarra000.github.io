@@ -1,0 +1,231 @@
+/* The shell the old .panel wore, minus everything that only made sense inside
+   a <dialog>: no fixed positioning, no scrim, no @starting-style enter, no
+   internal scroll. The page scrolls now. */
+.entry {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  /* The frame, at the same absolute 8/18/10px the card and the overlay both
+     used. Identical thickness at every width is what made the overlay read as
+     the card enlarged; it is what makes these read as the same object again. */
+  padding: var(--frame);
+  background: var(--accent, #000000);
+  color: var(--ink);
+  border-radius: var(--radius-lg);
+  /* .head paints the accent to its own square top corners, so without a clip
+     it would square off the frame's rounding. */
+  overflow: hidden;
+
+  /* One rule reverts the whole entry. Titles, roles, headings, chips and link
+     labels are all plain inherited text, and body sets text-transform:
+     lowercase globally -- proper nouns like "SAP" and "MySQL/SQLite" have to
+     survive it. */
+  text-transform: none;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1.25rem 2rem;
+
+  /* Darkened accent, not the raw accent: measured against white, the brand
+     colours here run 3:1 and worse, so white title text only clears AA once
+     the plate is knocked back. Kept as a gradient layer rather than
+     color-mix() for the same reason the card did -- see Card.module.css
+     history; the fallback behaviour of color-mix() was the trap. */
+  background-color: var(--accent, #000000);
+  background-image: linear-gradient(rgb(0 0 0 / 0.35), rgb(0 0 0 / 0.35));
+  /* Square at the bottom: .head abuts .body with no gutter, so the two read as
+     one sheet under a single dark band. */
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.18);
+}
+
+/* A white plate behind the logo. The source logos are a mix of transparent and
+   white-matted PNG/WebP, and several are dark marks -- dropped straight onto
+   the darkened accent, half of them would disappear. */
+.logo {
+  flex: none;
+  display: grid;
+  place-items: center;
+  /* Fixed box, so the header height is reserved before the images decode and
+     nothing shifts. The logos have wildly different aspect ratios (wordmarks
+     vs. roundels), which is why the box is sized and the image is contained
+     inside it rather than the other way round. */
+  width: 5.5rem;
+  height: 5.5rem;
+  padding: 0.4rem;
+  background: #ffffff;
+  border-radius: var(--radius-sm);
+}
+
+.logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.heading {
+  /* Flex items floor at min-width: auto (= min-content), so a long unbroken
+     title would push the header wider than the entry instead of wrapping. */
+  min-width: 0;
+}
+
+.head h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.role {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  /* 85% white on the darkened plate measures ~5:1 against the lightest accent
+     here, clearing AA. Pure white would read as a second title. */
+  color: rgb(255 255 255 / 0.85);
+}
+
+.role::before {
+  content: "[";
+}
+
+.role::after {
+  content: "]";
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem 2rem;
+  background: #ffffff;
+  /* Bottom corners only -- .body is the last child and meets .head squarely. */
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+.description {
+  margin: 0;
+  line-height: 1.8;
+}
+
+.section h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  /* Weight, not tracking. At 1rem lowercase a tracked heading is visually
+     identical to the copy under it; the brackets alone are not enough
+     hierarchy. :root sets font-synthesis: none, so this needs a real bold --
+     system monospace has one. */
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.section h3::before {
+  content: "[";
+}
+
+.section h3::after {
+  content: "]";
+}
+
+.section p {
+  margin: 0 0 0.75rem 0;
+  line-height: 1.8;
+}
+
+.section p:last-child {
+  margin-bottom: 0;
+}
+
+.highlights {
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.8;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 0.15rem 0.6rem;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  border: 1px solid var(--accent, #000000);
+  border-radius: var(--radius-sm);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.linkButton {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+  /* A trace of tracking on purpose: this is light-on-dark, and a little
+     counters halation. */
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: var(--radius-md);
+  /* Driven off the duration token so the global prefers-reduced-motion
+     override in index.css collapses it to 1ms for free. */
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
+}
+
+.linkButton:hover {
+  color: var(--ink);
+  background-color: #ffffff;
+}
+
+.linkButton:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+@media (forced-colors: active) {
+  .entry {
+    outline: 1px solid CanvasText;
+    outline-offset: -1px;
+  }
+
+  .head {
+    border-bottom: 1px solid CanvasText;
+  }
+}
+
+@media (max-width: 1000px) {
+  .head {
+    padding: 1rem 1.25rem;
+    gap: 1rem;
+  }
+
+  .head h2 {
+    font-size: 1.25rem;
+  }
+
+  .logo {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .body {
+    padding: 1.25rem;
+    gap: 1.5rem;
+  }
+}

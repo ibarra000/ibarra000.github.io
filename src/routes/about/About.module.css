@@ -6,7 +6,9 @@
   display: flex;
   flex-direction: column; /* Use column direction as needed */
   align-items: flex-start; /* Center children horizontally within the container */
-  padding: 3rem;
+  /* Was a flat 3rem. Same clamp as .exp and .home, same reason: 78px of side
+     padding against a 320px viewport leaves a 242px text column. */
+  padding: 3rem clamp(1rem, 5vw, 3rem);
   margin: 0 auto; /* Similar margin to .home */
   gap: 3rem;
 }

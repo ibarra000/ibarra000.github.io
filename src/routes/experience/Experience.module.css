@@ -5,8 +5,14 @@
   height: fit-content;
   display: flex;
   flex-direction: column; /* Use column direction as needed */
-  align-items: flex-end; /* Center children horizontally within the container */
-  padding: 3rem;
+  /* center, matching Projects. Inert today -- EntryList's .list is width:
+     100%, so there is no free cross-axis space for align-items to act on --
+     but it is the only rule in the repo capable of right-shifting the run of
+     entries. */
+  align-items: center;
+  /* clamp rather than a flat 3rem: at 375px a flat 96px of side padding left
+     too little room for the content, which overflowed horizontally. */
+  padding: 3rem clamp(1rem, 5vw, 3rem);
   margin: 0 auto 0 auto; /* Similar margin to .home */
   gap: 3rem;
 }
@@ -17,26 +23,4 @@
   width: 100%;
   text-decoration: 2px underline;
   text-underline-offset: 1rem;
-}
-
-.cardContainer {
-  width: 100%; /* Take full width of the parent container */
-  height: 100%;
-
-  display: flex;
-  flex-direction: var(
-    --flex-direction,
-    row
-  ); /* Use column direction as needed */
-  align-items: center; /* Center children horizontally within the container */
-  justify-content: flex-start;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-
-@media (max-width: 1000px) {
-  .cardContainer {
-    --flex-direction: column;
-    gap: 3rem;
-  }
 }

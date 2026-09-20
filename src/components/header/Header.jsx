@@ -3,6 +3,7 @@ import { Link as ScrollLink } from "react-scroll";
 import styles from "./Header.module.css";
 import LinkedInLogo from "../../assets/linkedin.svg";
 import GithubLogo from "../../assets/github.svg";
+import ChessLogo from "../../assets/chess.png";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -24,7 +25,7 @@ export default function Header() {
               duration={700}
               offset={-70}
             >
-              Home
+              home
             </ScrollLink>
           </li>
           <li>
@@ -35,7 +36,7 @@ export default function Header() {
               duration={700}
               offset={-70}
             >
-              About
+              about
             </ScrollLink>
           </li>
           <li>
@@ -46,7 +47,7 @@ export default function Header() {
               duration={700}
               offset={-70}
             >
-              Experience
+              experience
             </ScrollLink>
           </li>
           <li>
@@ -57,7 +58,7 @@ export default function Header() {
               duration={700}
               offset={-70}
             >
-              Projects
+              projects
             </ScrollLink>
           </li>
         </ul>
@@ -78,6 +79,14 @@ export default function Header() {
           aria-label="GitHub"
         >
           <img src={GithubLogo} alt="GitHub Profile" />
+        </a>
+                <a
+          href="https://www.chess.com/member/edwardibarra0"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Chess.com"
+        >
+          <img src={ChessLogo} alt="Chess.com Profile" width="36" />
         </a>
       </div>
       <button

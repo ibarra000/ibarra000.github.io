@@ -1,0 +1,126 @@
+.figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  /* Reserve the box before the frame paints so opening the overlay does not
+     shift layout. An iframe with no dimensions defaults to 300x150. */
+  aspect-ratio: var(--demo-aspect, 16 / 9);
+  background: #000000;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  /* Mandatory rather than cosmetic: .frame is an absolutely positioned
+     <iframe> at inset: 0 and would paint square corners straight over the
+     radius without an explicit clip. */
+  overflow: hidden;
+  /* Insurance -- Safari has historically ignored an ancestor's rounded clip on
+     an iframe unless the ancestor had its own paint context. */
+  isolation: isolate;
+}
+
+.frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  border-radius: inherit;
+}
+
+.caption {
+  line-height: 1.7;
+}
+
+.caption h3 {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  /* Was uppercase + 0.08em. Same reasoning as .section h3 in CardDetail:
+     tracking cannot carry hierarchy at 1rem lowercase, weight can. */
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.caption h3::before {
+  content: "[";
+}
+
+.caption h3::after {
+  content: "]";
+}
+
+.caption p {
+  margin: 0;
+  color: var(--ink);
+}
+
+/* The click-to-play facade that stands in for the frame until it is pressed.
+   Absolutely positioned like .frame so the two occupy the same box and the
+   swap cannot shift layout -- .wrapper already reserves it via aspect-ratio. */
+.poster {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  font: inherit;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  /* .wrapper is already black; the accent inherited from the entry tints it so
+     the plate belongs to the entry it sits in rather than reading as a hole.
+     No poster image exists for these -- cap.so exposes no thumbnail -- and a
+     flat plate suits the monospace direction better than a faked one. */
+  color: #ffffff;
+  background-color: var(--accent, #000000);
+  background-image: linear-gradient(rgb(0 0 0 / 0.55), rgb(0 0 0 / 0.55));
+  border: 0;
+  border-radius: inherit;
+  cursor: pointer;
+
+  /* background-image, not background-color: the accent underneath never
+     changes, the darkening layer over it does. Two linear-gradients with the
+     same stop count interpolate, so this animates rather than snapping. */
+  transition: background-image var(--duration-fast) var(--ease-out);
+}
+
+.poster:hover {
+  background-image: linear-gradient(rgb(0 0 0 / 0.35), rgb(0 0 0 / 0.35));
+}
+
+.poster:focus-visible {
+  /* var(--ink) would vanish against the plate. Inset, because an outline-offset
+     would be clipped by .wrapper's overflow: hidden. */
+  outline: 2px solid #ffffff;
+  outline-offset: -4px;
+}
+
+.play {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  /* Optical centering: the glyph's bounding box carries more space on its left
+     than its right, so a geometrically centred triangle looks off-centre. */
+  padding-left: 0.2rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  border: 1px solid rgb(255 255 255 / 0.55);
+  border-radius: 50%;
+
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.poster:hover .play {
+  border-color: #ffffff;
+}
